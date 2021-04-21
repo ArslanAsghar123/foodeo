@@ -8,6 +8,38 @@ class StileDrawer extends StatefulWidget {
 }
 
 class _StileDrawerState extends State<StileDrawer> {
+  List<CommonListTile> list = [
+    CommonListTile(
+      title: 'Home',
+      icon: Icons.home_outlined,
+      onPressed: () {
+        print('pressed');
+      },
+    ),
+    CommonListTile(
+      title: 'Categories',
+      icon: Icons.fastfood_outlined,
+      onPressed: () {}),
+    CommonListTile(
+        title: 'Best Deals For you',
+        icon: Icons.clean_hands,
+        onPressed: () {}),
+    CommonListTile(
+        title: 'My Orders',
+        icon: Icons.shopping_basket_outlined,
+        onPressed: () {}),
+    CommonListTile(
+        title: 'Cart',
+        icon: Icons.shopping_cart_outlined,
+        onPressed: () {}),
+    CommonListTile(
+        title: 'Profile',
+        icon: Icons.person_outline,
+        onPressed: () {}),
+    CommonListTile(
+        title: 'Contact Us',
+        icon: Icons.phone_in_talk_outlined,
+        onPressed: () {}),];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,40 +74,48 @@ class _StileDrawerState extends State<StileDrawer> {
                   subtitle: Text('arslanasghar@gmail.com',softWrap: true,style: TextStyle(fontSize: 15),),
                 ),
               ),
-              Column(
-                children: [
-                  CommonListTile(
-                    title: 'Home',
-                    icon: Icons.home_outlined,
-                    onPressed: () {
-                      print('pressed');
-                    },
-                  ),
-                  CommonListTile(
-                      title: 'Categories',
-                      icon: Icons.fastfood_outlined,
-                      onPressed: () {}),
-                  CommonListTile(
-                      title: 'Best Deals For you',
-                      icon: Icons.clean_hands,
-                      onPressed: () {}),
-                  CommonListTile(
-                      title: 'My Orders',
-                      icon: Icons.shopping_basket_outlined,
-                      onPressed: () {}),
-                  CommonListTile(
-                      title: 'Cart',
-                      icon: Icons.shopping_cart_outlined,
-                      onPressed: () {}),
-                  CommonListTile(
-                      title: 'Profile',
-                      icon: Icons.person_outline,
-                      onPressed: () {}),
-                  CommonListTile(
-                      title: 'Contact Us',
-                      icon: Icons.phone_in_talk_outlined,
-                      onPressed: () {}),
-                ],
+              // Column(
+              //   children: [
+              //     CommonListTile(
+              //       title: 'Home',
+              //       icon: Icons.home_outlined,
+              //       onPressed: () {
+              //         print('pressed');
+              //       },
+              //     ),
+              //     CommonListTile(
+              //         title: 'Categories',
+              //         icon: Icons.fastfood_outlined,
+              //         onPressed: () {}),
+              //     CommonListTile(
+              //         title: 'Best Deals For you',
+              //         icon: Icons.clean_hands,
+              //         onPressed: () {}),
+              //     CommonListTile(
+              //         title: 'My Orders',
+              //         icon: Icons.shopping_basket_outlined,
+              //         onPressed: () {}),
+              //     CommonListTile(
+              //         title: 'Cart',
+              //         icon: Icons.shopping_cart_outlined,
+              //         onPressed: () {}),
+              //     CommonListTile(
+              //         title: 'Profile',
+              //         icon: Icons.person_outline,
+              //         onPressed: () {}),
+              //     CommonListTile(
+              //         title: 'Contact Us',
+              //         icon: Icons.phone_in_talk_outlined,
+              //         onPressed: () {}),
+              //   ],
+              // ),
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                    itemCount: list.length,
+                    itemBuilder: (context, index){
+                      return list[index];
+                    }),
               ),
               CommonListTile(
                   title: 'Sign Out', icon: Icons.logout, onPressed: () {})
