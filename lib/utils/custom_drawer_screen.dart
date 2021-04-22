@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodeo/common/widgets/list_tile.dart';
-
+import 'package:foodeo/constants/contant_colors.dart';
 
 class StileDrawer extends StatefulWidget {
   @override
@@ -15,31 +15,40 @@ class _StileDrawerState extends State<StileDrawer> {
       onPressed: () {
         print('pressed');
       },
+      color: Colors.white,
     ),
     CommonListTile(
-      title: 'Categories',
-      icon: Icons.fastfood_outlined,
-      onPressed: () {}),
+        title: 'Categories',
+        icon: Icons.fastfood_outlined,
+        color: Colors.white,
+        onPressed: () {}),
     CommonListTile(
         title: 'Best Deals For you',
         icon: Icons.clean_hands,
+        color: Colors.white,
         onPressed: () {}),
     CommonListTile(
         title: 'My Orders',
         icon: Icons.shopping_basket_outlined,
+        color: Colors.white,
         onPressed: () {}),
     CommonListTile(
         title: 'Cart',
         icon: Icons.shopping_cart_outlined,
+        color: Colors.white,
         onPressed: () {}),
     CommonListTile(
         title: 'Profile',
         icon: Icons.person_outline,
+        color: Colors.white,
         onPressed: () {}),
     CommonListTile(
         title: 'Contact Us',
         icon: Icons.phone_in_talk_outlined,
-        onPressed: () {}),];
+        color: Colors.white,
+        onPressed: () {}),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -50,7 +59,7 @@ class _StileDrawerState extends State<StileDrawer> {
           padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
           height: MediaQuery.of(context).size.height * 0.95,
           width: MediaQuery.of(context).size.width * 0.70,
-          color: Colors.white,
+          color: AppColors.globalcolor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,8 +79,19 @@ class _StileDrawerState extends State<StileDrawer> {
                     backgroundColor: Colors.grey,
                     radius: 23,
                   ),
-                  title: Text('CAS',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
-                  subtitle: Text('arslanasghar@gmail.com',softWrap: true,style: TextStyle(fontSize: 15),),
+                  title: Text(
+                    'CAS',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,),
+                  ),
+                  subtitle: Text(
+                    'arslanasghar@gmail.com',
+                    softWrap: true,
+                    style: TextStyle(fontSize: 15,        color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
               // Column(
@@ -111,14 +131,18 @@ class _StileDrawerState extends State<StileDrawer> {
               // ),
               Expanded(
                 child: ListView.builder(
-                  shrinkWrap: true,
+                    shrinkWrap: true,
                     itemCount: list.length,
-                    itemBuilder: (context, index){
+                    itemBuilder: (context, index) {
                       return list[index];
                     }),
               ),
               CommonListTile(
-                  title: 'Sign Out', icon: Icons.logout, onPressed: () {})
+                title: 'Sign Out',
+                icon: Icons.logout,
+                onPressed: () {},
+                color: Colors.white,
+              )
             ],
           ),
         ),

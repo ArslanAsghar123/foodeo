@@ -1,35 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodeo/model/bottom_navigation_model.dart';
-import 'package:foodeo/screens/bottom_navigation_bar_screen.dart';
-import 'package:foodeo/screens/cart.dart';
-import 'package:foodeo/screens/drawer_screen.dart';
-import 'package:foodeo/screens/profile.dart';
+import 'package:foodeo/utils/custom_drawer_screen.dart';
+import 'package:foodeo/utils/custom_icons.dart';
+import 'package:foodeo/utils/custom_slider.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  int _currentIndex = 0;
-  List<Widget> _childrens;
+class _HomePageState extends State<HomePage> {
 
-  final bottomBarModel = <BottomBarItemModel>[
-    BottomBarItemModel(Icons.shopping_cart_outlined),
-    BottomBarItemModel(Icons.home_outlined),
-    BottomBarItemModel(Icons.perm_identity_sharp),
-  ];
-
-
-  @override
-  void initState() {
-    _childrens = [
-      Cart(),
-      HomePage(),
-      Profile()
-    ];
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +18,37 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
-        title: Text(''),
+        title: Center(
+          child: Text(
+            'What are you craving for?',
+            style: Theme.of(context).textTheme.headline2,
+          ),
+        ),
+        leading: Builder(
+          builder: (context) => IconButton(
+              onPressed: () => Scaffold.of(context).openDrawer(),
+              icon: Icon(MyFlutterApp.menu)),
+        ),
+        actions: [
+          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {})
+        ],
       ),
       drawer: StileDrawer(),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      body: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+
+        ),
+        child: CustomSliderWidget(
+          items: [
+            'assets/images/beef.jpg',
+            'assets/images/burger.jpg',
+            'assets/images/chiken.jpg',
+            'assets/images/fries.jpg',
+            'assets/images/pizza.jpg',
+          ],
+        ),
+      ),
     );
   }
 }
